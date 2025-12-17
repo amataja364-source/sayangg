@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Kamu yang Lagi PMS 🤍</title>
+  <style>
+  
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      height:100vh;
+      font-family:'Segoe UI',sans-serif;
+      background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffc3a0);
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:#fff;
+    }
+    .container{
+      background:rgba(255,255,255,0.18);
+      backdrop-filter:blur(12px);
+      border-radius:30px;
+      padding:35px 28px;
+      width:90%;
+      max-width:430px;
+      text-align:center;
+      box-shadow:0 25px 50px rgba(0,0,0,.25);
+      animation:float 5s ease-in-out infinite;
+    }
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-12px)}
+    }
+    h1{
+      font-size:26px;
+      margin-bottom:12px;
+    }
+    p{
+      font-size:16px;
+      line-height:1.7;
+      margin-bottom:18px;
+    }
+    button{
+      border:none;
+      border-radius:35px;
+      padding:14px 26px;
+      font-size:15px;
+      background:#fff;
+      color:#ff5c8a;
+      cursor:pointer;
+      transition:.3s;
+    }
+    button:hover{
+      transform:scale(1.08);
+      background:#ffe1ec;
+    }
+    .heart{
+      position:absolute;
+      bottom:-30px;
+      font-size:22px;
+      animation:fly linear infinite;
+      opacity:.9;
+    }
+    @keyframes fly{
+      from{transform:translateY(0) scale(.8);opacity:1}
+      to{transform:translateY(-120vh) scale(1.4);opacity:0}
+    }
+    .sparkle{
+      position:absolute;
+      width:6px;
+      height:6px;
+      background:#fff;
+      border-radius:50%;
+      opacity:.8;
+      animation:spark 2.5s linear infinite;
+    }
+    @keyframes spark{
+      from{transform:scale(0);opacity:1}
+      to{transform:scale(2);opacity:0}
+    }
+    .foto{
+      width:50%;
+      border-radius:10px;
+      margin-bottom:10px;
+      box-shadow:0 10px 10px rgba(0,0,0,.2);
+    }
+
+    .foto:active{
+      transform:scale(0.95);
+    }
+    
+    </style>
+</head>
+<audio id="musik" loop>
+  <source src="laguu.mp3" type="audio/mpeg">
+</audio>
+<body>
+
+<div class="container">
+  <h1>Hai Sayang</h1>
+  <p>
+
+  <img src="syg.jpeg" class="foto"onclick="sayang()">>
+
+    Aku tahu kamu lagi PMS.
+    Badan nggak enak, mood gampang berubah,
+    dan semuanya kerasa berat.
+  </p>
+  <p>
+    Nggak apa-apa ya kalau kamu capek.
+    Kamu nggak lebay, nggak manja.
+    Kamu cuma butuh dimengerti,
+    dan aku di sini buat itu 🤍
+  </p>
+  <p>
+    Pantun buat kamu:
+
+    1.Jam berdetak pelan malam hari,
+    hatiku deg-deg kan mikirin kamu.
+    walau PMS bikin kamu galak sendiri,
+    aku tetap jatuh cinta sama kamu setiap hari 😘
+
+    2.ke pasar beli bunga melati,
+    pulangnya bawa coklat sekotak.
+    walau PMS bikin kamu marah-marah sendiri,
+    aku tetap sayang kamu sepenuh hati 🤍
+  </p>
+  <button onclick="sayang()">Klik kalau mau dipeluk</button>
+
+  <button onclick="playMusic()">putar lagu</button>
+</div>
+
+<script>
+  function sayang(){
+    alert('Pelan-pelan ya sayang 🤍 aku temenin sampe selesai ya sayang, jangan lupa minum air  ya kalo kamu marah ke aku aja ya sayang 😘');
+  }
+
+  const hearts=['🤍','💗','💖','💕','💞'];
+  setInterval(()=>{
+    const h=document.createElement('div');
+    h.className='heart';
+    h.innerText=hearts[Math.floor(Math.random()*hearts.length)];
+    h.style.left=Math.random()*100+'vw';
+    h.style.animationDuration=(4+Math.random()*4)+'s';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),8000);
+  },350);
+
+  setInterval(()=>{
+    const s=document.createElement('div');
+    s.className='sparkle';
+    s.style.left=Math.random()*100+'vw';
+    s.style.top=Math.random()*100+'vh';
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),2500);
+  },200);
+
+  function playMusic(){
+    const musik=document.getElementById('musik');
+    musik.volume = 0.4;
+    musik.play();
+  }
+
+</script>
+
+</body>
+</html>
